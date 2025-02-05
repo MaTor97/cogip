@@ -16,7 +16,7 @@ public class CompanyController {
     public List<Company> getAll() {
         return companyService.getCompanies();
     }
-    @PostMapping(path = "addCompany")
+    @PostMapping(path = "new")
     public void addCompany(@RequestBody Company company) {
         companyService.addCompany(company);
     }
