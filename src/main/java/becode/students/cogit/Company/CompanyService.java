@@ -22,6 +22,7 @@ public class CompanyService {
                 .map(company -> new CompanyDTO(
                         company.getId(),
                         company.getName(),
+                        company.getType() != null ? company.getType().getId() : null,
                         company.getType() != null ? company.getType().getName() : null,
                         company.getCountry(),
                         company.getTva()
