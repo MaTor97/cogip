@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 public class TypeService {
-    private TypeRepository TypeRepository;
+    private final TypeRepository TypeRepository;
 
     @Autowired
     public TypeService(TypeRepository TypeRepository) {

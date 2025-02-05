@@ -1,6 +1,8 @@
 package becode.students.cogit.Company;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,11 +32,53 @@ public class CompanyService {
                 .collect(Collectors.toList());
     }
 
+    public List<CompanyDTO> getLast5Companies() {
+        return companyRepository.findTop5ByOrderByCreatedAtDesc().stream()
+                .map(company -> new CompanyDTO(
+                        company.getId(),
+                        company.getName(),
+                        company.getType() != null ? company.getType().getId() : null,
+                        company.getType() != null ? company.getType().getName() : null,
+                        company.getCountry(),
+                        company.getTva()
+                ))
+                .toList();
+    }
+
     public void addCompany(Company company) {
         Optional<Company> companyTva = companyRepository.findByTva(company.getTva());
         if(companyTva.isPresent()){
             throw new IllegalStateException("Company TVA already exists");
         }
         companyRepository.save(company);
+    }
+
+    public List<CompanyDTO> getCompaniesByPage(int page, int size) {
+        Page<Company> companyPage = companyRepository.findByOrderByCreatedAtAsc(PageRequest.of(page, size));
+        return companyPage.getContent().stream()
+                .map(company -> new CompanyDTO(
+                company.getId(),
+                company.getName(),
+                company.getType() != null ? company.getType().getId() : null,
+                company.getType() != null ? company.getType().getName() : null,
+                company.getCountry(),
+                company.getTva()
+        )).collect(Collectors.toList());
+    }
+
+    public CompanyDTO getCompany(Integer id) {
+        Optional<Company> selectedCompany = companyRepository.findById(id);
+        if(selectedCompany.isEmpty()){
+            throw new IllegalStateException("Company not found");
+        }
+        Company company = selectedCompany.get();
+        return new CompanyDTO(
+                company.getId(),
+                company.getName(),
+                company.getType() != null ? company.getType().getId() : null,
+                company.getType() != null ? company.getType().getName() : null,
+                company.getCountry(),
+                company.getTva()
+        );
     }
 }
