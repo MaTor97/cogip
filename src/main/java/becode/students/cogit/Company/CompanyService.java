@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class CompanyService {
@@ -16,8 +17,16 @@ public class CompanyService {
         this.companyRepository = CompanyRepository;
     }
 
-    public List<Company> getCompanies() {
-        return companyRepository.findAll();
+    public List<CompanyDTO> getCompanies() {
+        return companyRepository.findAll().stream()
+                .map(company -> new CompanyDTO(
+                        company.getId(),
+                        company.getName(),
+                        company.getType() != null ? company.getType().getName() : null, // Only type name
+                        company.getCountry(),
+                        company.getTva()
+                ))
+                .collect(Collectors.toList());
     }
 
     public void addCompany(Company company) {

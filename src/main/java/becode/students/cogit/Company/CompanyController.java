@@ -13,7 +13,7 @@ public class CompanyController {
         this.companyService = companyService;
     }
     @GetMapping(path ="all")
-    public List<Company> getAll() {
+    public List<CompanyDTO> getAll() {
         return companyService.getCompanies();
     }
     @PostMapping(path = "new")

@@ -1,8 +1,8 @@
 package becode.students.cogit.Type;
 
 import becode.students.cogit.Company.Company;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import org.springframework.boot.actuate.audit.listener.AuditListener;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -25,6 +25,7 @@ public class Type {
     @LastModifiedDate
     private LocalDateTime updated_at;
     @OneToMany(mappedBy = "type")
+    @JsonBackReference
     private List<Company> companies;
 
     public Type() {
@@ -81,7 +82,9 @@ public class Type {
                 ", name='" + name + '\'' +
                 ", created_at=" + created_at +
                 ", updated_at=" + updated_at +
-                ", companies=" + companies +
+                ", companies=" + companies.stream()
+                .map(Company::getName)
+                .toList() +
                 '}';
     }
 }

@@ -42,6 +42,10 @@ public class Company {
         this.tva = tva;
     }
 
+    public String getTypeName() {
+        return type != null ? type.getName() : null;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -103,7 +107,7 @@ public class Company {
         return "Company{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", type=" + type +
+                ", type=" + type.getId() +
                 ", country='" + country + '\'' +
                 ", tva='" + tva + '\'' +
                 ", created_at=" + created_at +
