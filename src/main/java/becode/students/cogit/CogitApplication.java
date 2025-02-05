@@ -2,10 +2,11 @@ package becode.students.cogit;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 
 @SpringBootApplication
-
+@EnableJpaAuditing
 public class CogitApplication {
 
 	public static void main(String[] args) {

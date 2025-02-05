@@ -8,6 +8,6 @@ import java.util.Optional;
 @Repository
 public interface InvoiceRepository extends JpaRepository<Invoice, Integer> {
     Optional<Invoice> findById(int id);
-    Optional<Invoice> findByCompanyID(int id_company);
+    Optional<Invoice> findByCompanyId(int id_company);
     Optional<Invoice> findByRef(String ref);
 }

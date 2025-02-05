@@ -1,9 +1,9 @@
-package becode.students.cogit.Invoice;
+package becode.students.cogit.Contacts;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
-
 @Configuration
-public class InvoiceConfig {
+public class ContactConfig {
+
 }

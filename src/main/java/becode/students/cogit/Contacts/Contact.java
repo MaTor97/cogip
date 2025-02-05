@@ -1,6 +1,6 @@
-package becode.students.cogit.Company;
+package becode.students.cogit.Contacts;
 
-import becode.students.cogit.Type.Type;
+import becode.students.cogit.Company.Company;
 import jakarta.persistence.*;
 import org.springframework.boot.actuate.audit.listener.AuditListener;
 import org.springframework.data.annotation.CreatedDate;
@@ -12,34 +12,29 @@ import java.time.LocalDateTime;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table
-public class Company {
+public class Contact {
     @Id
-    @GeneratedValue(
-            strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
-
     @ManyToOne
-    @JoinColumn(name = "type_id")
-    private Type type;
-
-    private String country;
-    private String tva;
+    @JoinColumn(name = "company_id")
+    private Company company;
+    private String email;
+    private String phone;
     @CreatedDate
-    @Column(nullable = false, updatable = false)
     private LocalDateTime created_at;
     @LastModifiedDate
-    @Column(nullable = false)
     private LocalDateTime updated_at;
 
-    public Company() {
+    public Contact() {
     }
 
-    public Company(String name, Type type, String country, String tva) {
+    public Contact(String name, Company company, String email, String phone) {
         this.name = name;
-        this.type = type;
-        this.country = country;
-        this.tva = tva;
+        this.company = company;
+        this.email = email;
+        this.phone = phone;
     }
 
     public Integer getId() {
@@ -58,28 +53,28 @@ public class Company {
         this.name = name;
     }
 
-    public Type getType() {
-        return type;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setType_id(Type type) {
-        this.type = type;
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
-    public String getCountry() {
-        return country;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getTva() {
-        return tva;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setTva(String tva) {
-        this.tva = tva;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public LocalDateTime getCreated_at() {
@@ -100,12 +95,12 @@ public class Company {
 
     @Override
     public String toString() {
-        return "Company{" +
+        return "Contact{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", type=" + type +
-                ", country='" + country + '\'' +
-                ", tva='" + tva + '\'' +
+                ", company=" + company +
+                ", email='" + email + '\'' +
+                ", phone='" + phone + '\'' +
                 ", created_at=" + created_at +
                 ", updated_at=" + updated_at +
                 '}';

@@ -22,7 +22,7 @@ public class InvoiceService {
         return invoice.get();
     }
     public Invoice getInvoiceByCompany(int companyId) {
-        Optional<Invoice> invoices = invoiceRepository.findByCompanyID(companyId);
+        Optional<Invoice> invoices = invoiceRepository.findByCompanyId(companyId);
         if (invoices.isEmpty()) {
             throw new IllegalStateException("Not invoice found for this company");
         }
