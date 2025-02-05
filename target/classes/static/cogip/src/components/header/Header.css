@@ -1,0 +1,94 @@
+header {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 2rem;
+    background-color: #F9DE4E;
+    height: 287px;
+    overflow: hidden;
+
+    .header {
+        height: 56px;
+        width: 1193px;
+        display: flex;
+        justify-content: space-between;
+        font-family: Roboto;
+        margin-top: 95px;
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            height: 100%;
+            align-items: center;
+            
+            h1{
+                font-family: Roboto, sans-serif;
+                font-size: 48px;
+                font-weight: 900;
+                line-height: 56.25px;
+                text-align: left;
+                margin-right: 100px;
+            }
+
+            ul {
+                display: flex;
+
+                li {
+                    a {
+                        padding: 0 1rem;
+                        cursor: pointer;
+                        color: #000000;
+                        font-family: Roboto, sans-serif;
+                        font-size: 20px;
+                        font-weight: 600;
+                        line-height: 23.44px;
+                        text-decoration: none;
+                        padding: 10px 20px;
+                    }
+                }
+
+                .signup {
+                    border-radius: 10px;
+                    background-color: #ffffff;
+                }
+                
+                .actual {
+                    border: 1px solid #000000;
+                    padding: 10px 0;
+                    margin-top: -10px;
+                }
+            }
+        }
+    }
+
+    .homeIntro {
+        .paragraph {
+            width: 595px;
+            height: 237px;
+            margin: 137px;
+
+            p {
+                font-family: 'Inter', sans-serif;
+                font-size: 55px;
+                font-weight: 900;
+                line-height: 78.66px;
+                text-align: left;
+            }
+        }
+        
+            img {
+                width: 779px;
+                height: 586px;
+                position: absolute;
+                top: 142px;
+                left: 681px;
+            }
+    }
+    
+    .header-svg {
+        position: absolute;
+        width: 1299px;
+        height: auto;
+        top: 192px;
+        left: 70px;
+    }
+}
