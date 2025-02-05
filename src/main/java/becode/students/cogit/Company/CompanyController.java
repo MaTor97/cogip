@@ -16,6 +16,7 @@ public class CompanyController {
     public List<CompanyDTO> getAll() {
         return companyService.getCompanies();
     }
+
     @PostMapping(path = "new")
     public void addCompany(@RequestBody Company company) {
         companyService.addCompany(company);
