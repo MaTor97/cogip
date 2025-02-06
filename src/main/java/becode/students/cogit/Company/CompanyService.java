@@ -27,7 +27,8 @@ public class CompanyService {
                         company.getType() != null ? company.getType().getId() : null,
                         company.getType() != null ? company.getType().getName() : null,
                         company.getCountry(),
-                        company.getTva()
+                        company.getTva(),
+                        company.getCreatedAt()
                 ))
                 .collect(Collectors.toList());
     }
@@ -40,7 +41,8 @@ public class CompanyService {
                         company.getType() != null ? company.getType().getId() : null,
                         company.getType() != null ? company.getType().getName() : null,
                         company.getCountry(),
-                        company.getTva()
+                        company.getTva(),
+                        company.getCreatedAt()
                 ))
                 .toList();
     }
@@ -57,12 +59,13 @@ public class CompanyService {
         Page<Company> companyPage = companyRepository.findByOrderByCreatedAtAsc(PageRequest.of(page, size));
         return companyPage.getContent().stream()
                 .map(company -> new CompanyDTO(
-                company.getId(),
-                company.getName(),
-                company.getType() != null ? company.getType().getId() : null,
-                company.getType() != null ? company.getType().getName() : null,
-                company.getCountry(),
-                company.getTva()
+                    company.getId(),
+                    company.getName(),
+                    company.getType() != null ? company.getType().getId() : null,
+                    company.getType() != null ? company.getType().getName() : null,
+                    company.getCountry(),
+                    company.getTva(),
+                    company.getCreatedAt()
         )).collect(Collectors.toList());
     }
 
@@ -78,7 +81,8 @@ public class CompanyService {
                 company.getType() != null ? company.getType().getId() : null,
                 company.getType() != null ? company.getType().getName() : null,
                 company.getCountry(),
-                company.getTva()
+                company.getTva(),
+                company.getCreatedAt()
         );
     }
 }

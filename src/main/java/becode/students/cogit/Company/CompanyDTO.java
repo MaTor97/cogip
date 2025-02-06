@@ -1,5 +1,7 @@
 package becode.students.cogit.Company;
 
+import java.time.LocalDateTime;
+
 public class CompanyDTO {
     private Integer id;
     private String name;
@@ -7,14 +9,24 @@ public class CompanyDTO {
     private String typeName;
     private String country;
     private String tva;
+    private LocalDateTime createdAt;
 
-    public CompanyDTO(Integer id, String name,Integer typeId, String typeName, String country, String tva) {
+    public CompanyDTO(Integer id, String name,Integer typeId, String typeName, String country, String tva, LocalDateTime createdAt) {
         this.id = id;
         this.name = name;
         this.typeId = typeId;
         this.typeName = typeName;
         this.country = country;
         this.tva = tva;
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     public Integer getId() {
