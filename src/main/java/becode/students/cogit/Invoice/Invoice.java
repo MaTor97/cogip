@@ -20,6 +20,7 @@ public class Invoice {
     @ManyToOne
     @JoinColumn(name = "companyId")
     private Company company;
+    private LocalDateTime dueDate;
     @CreatedDate
     private LocalDateTime createdAt;
     @LastModifiedDate
@@ -28,9 +29,18 @@ public class Invoice {
     public Invoice() {
     }
 
-    public Invoice(String ref, Company company) {
+    public Invoice(Integer id, String ref, LocalDateTime dueDate) {
+        this.id = id;
         this.ref = ref;
-        this.company = company;
+        this.dueDate = dueDate;
+    }
+
+    public LocalDateTime getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(LocalDateTime dueDate) {
+        this.dueDate = dueDate;
     }
 
     public Integer getId() {
