@@ -26,10 +26,10 @@ public class Company {
     private String country;
     private String tva;
     @CreatedDate
-    @Column(nullable = false, updatable = false)
+    @Column(name = "createdAt" ,nullable = false, updatable = false)
     private LocalDateTime createdAt;
     @LastModifiedDate
-    @Column(nullable = false)
+    @Column(name = "updatedAt", nullable = false)
     private LocalDateTime updatedAt;
     public Company() {
     }
