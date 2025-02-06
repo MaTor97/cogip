@@ -66,7 +66,7 @@ public class CompanyService {
         )).collect(Collectors.toList());
     }
 
-    public CompanyDTO getCompany(Integer id) {
+    public CompanyDTO getCompany(int id) {
         Optional<Company> selectedCompany = companyRepository.findById(id);
         if(selectedCompany.isEmpty()){
             throw new IllegalStateException("Company not found");
