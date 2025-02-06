@@ -2,12 +2,12 @@ POST http://localhost:8080/api/company/new
 Content-Type: application/json
 
 {
-  "name": "PenSupply",
+  "name": "knifeSupply",
   "type": {
-    "id": 2
+    "id": 1
   },
-  "country": "Belgium",
-  "tva":"BE03253242623"
+  "country": "Monte Negro",
+  "tva":"BE0325552723"
 }
 
 ###
