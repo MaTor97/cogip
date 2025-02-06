@@ -56,7 +56,7 @@ public class CompanyService {
     }
 
     public List<CompanyDTO> getCompaniesByPage(int page, int size) {
-        Page<Company> companyPage = companyRepository.findByOrderByCreatedAtAsc(PageRequest.of(page, size));
+        Page<Company> companyPage = companyRepository.findAll(PageRequest.of(page, size));
         return companyPage.getContent().stream()
                 .map(company -> new CompanyDTO(
                     company.getId(),
