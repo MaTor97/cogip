@@ -12,19 +12,19 @@ fetchData();
 
 export { companyObject };
 
-const invoicesUrl = 'http://localhost:8080/api/invoices/all';
-let invoicesObject = [];
+const invoiceUrl = 'http://localhost:8080/api/invoice/all';
+let invoiceObject = [];
 
 const fetchDataInvoices = async () => {
   const response = await fetch(url, {});
   const result = await response.json();
-  invoicesObject = result.map(el => [el.ref, el.dueDate, el.companyName, el.createdAt]);
+  invoiceObject = result.map(el => [el.ref, el.dueDate, el.companyName, el.createdAt]);
 };
 
 // Call fetchData when needed
 fetchData();
 
-export { invoicesObject };
+export { invoiceObject };
 
 const contactUrl = 'http://localhost:8080/api/contact/all';
 let contactObject = [];
