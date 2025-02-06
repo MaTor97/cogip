@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 public class CogitApplication {
 
 	public static void main(String[] args) {
-
+		
 		SpringApplication.run(CogitApplication.class, args);
 	}
 }

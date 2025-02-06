@@ -1,0 +1,29 @@
+POST http://localhost:8080/api/company/new
+Content-Type: application/json
+
+{
+  "name": "PenSupply",
+  "type": {
+    "id": 2
+  },
+  "country": "Belgium",
+  "tva":"BE03253242623"
+}
+
+###
+GET http://localhost:8080/api/company/all
+Accept: application/json
+
+
+###
+GET http://localhost:8080/api/company/last5
+Accept: application/json
+
+###
+GET http://localhost:8080/api/company/id?id=1
+Accept: application/json
+
+
+###
+GET http://localhost:8080/api/company/paginated?page=0&size=10
+Accept: application/json
