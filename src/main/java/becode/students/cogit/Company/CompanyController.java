@@ -17,7 +17,7 @@ public class CompanyController {
         return companyService.getCompanies();
     }
 
-    @GetMapping(path = "")
+    @GetMapping(path = "id")
     public CompanyDTO get(@RequestParam(name = "id", required = true) int id) {
         return  companyService.getCompany(id);
     }
