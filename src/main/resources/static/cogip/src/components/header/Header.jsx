@@ -17,18 +17,18 @@ const Header = ({activePage, setActivePage}) => {
                                 onClick={() => setActivePage('home')}
                             >Home</a>
                         </li>
-                        <li className={activePage === 'invoices' ? 'actual' : ""} >
+                        <li className={activePage === 'invoice' ? 'actual' : ""} >
                             <a 
-                                href="#invoices"
-                                className={activePage === 'invoices' ? 'active' : ''} 
-                                onClick={() => setActivePage('invoices')}
+                                href="#invoice"
+                                className={activePage === 'invoice' ? 'active' : ''} 
+                                onClick={() => setActivePage('invoice')}
                             >Invoices</a>
                         </li>
-                        <li className={activePage === 'companies' ? 'actual' : ""}>
+                        <li className={activePage === 'company' ? 'actual' : ""}>
                             <a 
-                                href="#companies"
-                                className={activePage === 'companies' ? 'active' : ''} 
-                                onClick={() => setActivePage('companies')}
+                                href="#company"
+                                className={activePage === 'company' ? 'active' : ''} 
+                                onClick={() => setActivePage('company')}
                             >Companies</a>
                         </li>
                         <li className={activePage === 'contact' ? 'actual' : ""}>

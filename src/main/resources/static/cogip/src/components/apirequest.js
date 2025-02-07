@@ -1,41 +1,29 @@
-const companyUrl = 'http://localhost:8080/api/company/all';
-let companyObject = [];
+const fetchData = async (endpoint, dataType) => {
+  try {
+    const response = await fetch(`http://localhost:8080/api/${endpoint}/${dataType}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const result = await response.json();
 
-const fetchDataCompany = async () => {
-  const response = await fetch(url, {});
-  const result = await response.json();
-  companyObject = result.map(el => [el.name, el.tva, el.country, el.typeName, el.createdAt]);
+    const formatter = (el) => {
+      switch (endpoint) {
+        case 'company':
+          return [el.name, el.tva, el.country, el.typeName, el.createdAt];
+        case 'invoice':
+          return [el.ref, el.dueDate, el.companyName, el.createdAt];
+        case 'contact':
+          return [el.name, el.phone, el.mail, el.companyName, el.createdAt];
+        default:
+          return el;
+      }
+    };
+
+    return result.map(formatter);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return [];
+  }
 };
 
-// Call fetchData when needed
-fetchData();
-
-export { companyObject };
-
-const invoiceUrl = 'http://localhost:8080/api/invoice/all';
-let invoiceObject = [];
-
-const fetchDataInvoices = async () => {
-  const response = await fetch(url, {});
-  const result = await response.json();
-  invoiceObject = result.map(el => [el.ref, el.dueDate, el.companyName, el.createdAt]);
-};
-
-// Call fetchData when needed
-fetchData();
-
-export { invoiceObject };
-
-const contactUrl = 'http://localhost:8080/api/contact/all';
-let contactObject = [];
-
-const fetchDatacontact = async () => {
-  const response = await fetch(url, {});
-  const result = await response.json();
-  contactObject = result.map(el => [el.name, el.phone, el.mail, el.companyName, el.createdAt]);
-};
-
-// Call fetchData when needed
-fetchData();
-
-export { contactObject };
+export default fetchData;
