@@ -1,9 +1,35 @@
 table {
-    margin-top: 40px;
+    width: 100%;
+    border-collapse: collapse;
+
+    thead {
+        tr {
+            height: 55px;
     
-    tr {
-        th {
-            border: 1px solid black;
+            th {
+                background-color: #F9DE4E;
+                font-family: Roboto;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 23.44px;
+                text-align: left;
+                padding-left: 30px;
+            }
+        }
+    }
+    
+    tbody {
+        tr {
+            height: 55px;   
+
+            td {
+                font-family: Roboto;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 23.44px;
+                padding-left: 30px;
+                gap: 0;
+            }
         }
     }
 }

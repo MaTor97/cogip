@@ -4,7 +4,7 @@ import './components/header/Header.jsx'
 import Header from './components/header/Header.jsx'
 import HomeOutro from './components/homeOutro/HomeOutro.jsx'
 import Footer from './components/footer/Footer.jsx'
-import DataTable from './components/table/Table.jsx'
+import MainContent from './components/main/MainContent.jsx'
 
 
 function App() {
@@ -13,12 +13,7 @@ function App() {
   return (
     <>
       <Header activePage={activePage} setActivePage={setActivePage} />
-      {activePage !== 'home' ? <DataTable activePage={activePage} /> :
-        <div> 
-          <DataTable activePage={'invoice'} />
-          <DataTable activePage={'contact'} />  
-          <DataTable activePage={'company'} />
-        </div>}
+      <MainContent activePage={activePage} />
       {activePage === 'home' ? <HomeOutro /> : null}
       <Footer activePage={activePage} />
     </>

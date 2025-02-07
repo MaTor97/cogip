@@ -45,18 +45,17 @@ const DataTable = ({ activePage, dataType = 'all' }) => {
           </tr>
         </thead>
         <tbody>
-          {data.length > 0 ? (
-            data.map((row, index) => (
-              <tr key={index}>
-                {row.map((cell, cellIndex) => (
-                  <td key={cellIndex}>{cell}</td>
-                ))}
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="5">Aucune donnée disponible</td>
-            </tr>
+        {data.length > 0 ? (data.map((row, index) => (
+          <tr
+            key={index}
+            style={{ backgroundColor: index % 2 !== 0 ? "#f5f5f5" : "#ffffff" }}
+          >
+            {row.map((cell, cellIndex) => (<td key={cellIndex}>{cell}</td>))}
+          </tr>
+          ))) : (
+          <tr>
+            <td colSpan="5">Aucune donnée disponible</td>
+          </tr>
           )}
         </tbody>
       </table>

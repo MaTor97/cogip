@@ -180,3 +180,19 @@ export const WifiSVG = () => (
       />
   </svg>
 );
+
+export const TableTitleSVG = () => (
+  <svg 
+    width="284" 
+    height="27" 
+    viewBox="0 0 284 27" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg"
+    >
+    <rect 
+      width="284" 
+      height="27" 
+      fill="#F9DE4E"
+    />
+  </svg>
+);
