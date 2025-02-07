@@ -3,7 +3,7 @@ main {
         left: 136px;
         top: 25px;
     width: 1193px;
-    height: 799px;
+    
     margin: 40px 0;
     overflow: hidden;
 
@@ -36,6 +36,17 @@ main {
                 margin-bottom: 60px;
                 padding-left: 15px;
             }
+        }
+    }
+
+    .home {
+        h2 {
+            font-family: Inter;
+            font-size: 60px;
+            font-weight: 900;
+            line-height: 72.61px;
+            z-index: 2;
+            margin-bottom: 154px;
         }
     }
 }
