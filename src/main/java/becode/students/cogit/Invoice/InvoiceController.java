@@ -35,4 +35,9 @@ public class InvoiceController {
         return invoiceService.getInvoiceByCompany(id);
     }
 
+    @GetMapping(path = "last5")
+    public List<InvoiceDTO> getLast5Invoices() {
+        return invoiceService.getLast5Invoices();
+    }
+
 }
