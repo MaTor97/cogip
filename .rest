@@ -2,12 +2,24 @@ POST http://localhost:8080/api/company/new
 Content-Type: application/json
 
 {
-  "name": "knifeSupply",
+  "name": "Hair'Fryer",
   "type": {
     "id": 1
   },
-  "country": "Monte Negro",
-  "tva":"BE0325552723"
+  "country": "France",
+  "tva":"FR748874449865"
+}
+
+POST http://localhost:8080/api/invoice/new
+Content-Type: application/json
+
+{
+  "ref": "VHDNLFCSK3DKDV?CSKLLD",
+  "dueDate": "",
+  "company": {
+    "id": 1,
+    "name": "Takitos"
+  }
 }
 
 ###
