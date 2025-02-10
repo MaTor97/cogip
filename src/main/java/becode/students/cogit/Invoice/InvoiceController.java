@@ -40,4 +40,10 @@ public class InvoiceController {
         return invoiceService.getLast5Invoices();
     }
 
+    @GetMapping(path = "paginated")
+    public List<InvoiceDTO> getPaginatedInvoices(
+            @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
+        return invoiceService.getInvoicesByPage(page, size);
+    }
+
 }

@@ -29,9 +29,9 @@ public class Invoice {
     public Invoice() {
     }
 
-    public Invoice(Integer id, String ref, LocalDateTime dueDate) {
-        this.id = id;
+    public Invoice(String ref, Company company, LocalDateTime dueDate) {
         this.ref = ref;
+        this.company = company;
         this.dueDate = dueDate;
     }
 
