@@ -10,20 +10,20 @@ Content-Type: application/json
   "tva":"FR748874449865"
 }
 
+###
 POST http://localhost:8080/api/invoice/new
 Content-Type: application/json
 
 {
-  "ref": "VHDNLFCSK3DKDV?CSKLLD",
-  "dueDate": "",
+  "ref": "VHDNQSDFGHJVBNIOPHJLD",
+  "dueDate": "0666-11-22T22:38:27",
   "company": {
-    "id": 1,
-    "name": "Takitos"
+    "id": 9
   }
 }
 
 ###
-GET http://localhost:8080/api/company/all
+GET http://localhost:8080/api/invoice/all
 Accept: application/json
 
 
@@ -37,5 +37,5 @@ Accept: application/json
 
 
 ###
-GET http://localhost:8080/api/company/paginated?page=0&size=10
+GET http://localhost:8080/api/invoice/paginated?page=0&size=10
 Accept: application/json
