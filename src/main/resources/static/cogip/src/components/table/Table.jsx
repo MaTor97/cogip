@@ -2,24 +2,20 @@ import React, { useState, useEffect } from "react";
 import './Table.css';
 import fetchData from "../apirequest.js";
 
-const DataTable = ({ activePage, dataType = 'all' }) => {
+const DataTable = ({ activePage, dataType = 'paginated?page=0&size=10' }) => {
   const [data, setData] = useState([]);
   
   useEffect(() => {
     const loadData = async () => {
-      const companyData = await fetchData('company', dataType);
-      const invoiceData = await fetchData('invoice', dataType);
-      const contactData = await fetchData('contact', dataType);
-
-      const dataSets = {
-        company: companyData,
-        invoice: invoiceData,
-        contact: contactData
-      };
-
-      setData(dataSets[activePage] || []);
+      try {
+        const fetchedData = await fetchData(activePage, dataType);
+        setData(fetchedData || []);
+        console.log('fetchedData: ', fetchedData);
+      } catch (error) {
+        console.error("Erreur lors du chargement des données :", error);
+        setData([]);
+      }
     };
-
     loadData();
   }, [activePage, dataType]); 
 

@@ -32,7 +32,7 @@ public class InvoiceService {
 
     public InvoiceDTO getInvoice(int id) {
         Optional<Invoice> invoiceData = invoiceRepository.findById(id);
-        if(invoiceData.isEmpty()) {
+        if(invoiceData.isPresent()) {
             throw new IllegalStateException("Invoice not found");
         }
         Invoice invoice = invoiceData.get();

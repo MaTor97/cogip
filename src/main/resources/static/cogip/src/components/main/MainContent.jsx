@@ -19,11 +19,11 @@ function MainContent({activePage}) {
             </div>:
             <div className='home'>
                 <h2>Last invoices</h2> 
-                <DataTable activePage={'invoice'} />
+                <DataTable activePage={'invoice'} dataType='paginated?page=0&size=5'/>
                 <h2>Last contacts</h2>
-                <DataTable activePage={'contact'} />  
+                <DataTable activePage={'contact'} dataType='paginated?page=0&size=5'/>  
                 <h2>Last companies</h2>
-                <DataTable activePage={'company'} />
+                <DataTable activePage={'company'} dataType='paginated?page=0&size=5'/>
             </div>}          
         </main>
     );
