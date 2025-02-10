@@ -71,7 +71,7 @@ public class InvoiceService {
         invoiceRepository.save(invoice);
     }
     public List<InvoiceDTO> getLast5Invoices() {
-        Optional<Invoice> invoices = invoiceRepository.findTop5ByOrderByCreatedAtDesc();
+        List<Invoice> invoices = invoiceRepository.findTop5ByOrderByCreatedAtDesc();
         if (invoices.isEmpty()) {
             throw new IllegalStateException("Not invoice found");
         }
