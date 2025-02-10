@@ -44,7 +44,7 @@ public class CompanyService {
                         company.getTva(),
                         company.getCreatedAt()
                 ))
-                .toList();
+                .collect(Collectors.toList());
     }
 
     public void addCompany(Company company) {

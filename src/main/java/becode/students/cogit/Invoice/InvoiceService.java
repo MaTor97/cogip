@@ -65,7 +65,7 @@ public class InvoiceService {
     }
     public void addInvoice(Invoice invoice) {
         Optional<Invoice> invoiceRef = invoiceRepository.findByRef(invoice.getRef());
-        if (invoiceRef.isEmpty()) {
+        if (invoiceRef.isPresent()) {
             throw new IllegalStateException("This reference already exists");
         }
         invoiceRepository.save(invoice);
