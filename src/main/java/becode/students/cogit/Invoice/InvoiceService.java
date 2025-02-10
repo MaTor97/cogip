@@ -101,4 +101,7 @@ public class InvoiceService {
                         invoice.getCompany().getName()
                 )).toList();
     }
+    public long getSize(){
+        return invoiceRepository.count();
+    }
 }

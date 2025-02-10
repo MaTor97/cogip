@@ -42,4 +42,8 @@ public class ContactController {
             @RequestParam(name = "page") int page, @RequestParam(name = "size") int size) {
         return contactService.getContactsByPage(page,size);
     }
+    @GetMapping(path = "size")
+    public long getSize() {
+        return contactService.getSize();
+    }
 }

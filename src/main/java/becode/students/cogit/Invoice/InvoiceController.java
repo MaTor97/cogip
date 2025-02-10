@@ -45,5 +45,8 @@ public class InvoiceController {
             @RequestParam(name = "page") int page, @RequestParam(name = "size") int size){
         return invoiceService.getInvoicesByPage(page, size);
     }
-
+    @GetMapping(path = "size")
+    public long getSize(){
+        return invoiceService.getSize();
+    }
 }

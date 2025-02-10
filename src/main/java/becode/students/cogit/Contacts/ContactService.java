@@ -67,6 +67,7 @@ public class ContactService {
                 contact.getCompany().getId(),
                 contact.getCompany().getName()
         );
+
     }
 
     public void addContact(Contact contact){
@@ -99,5 +100,8 @@ public class ContactService {
                         contact.getCompany().getName()
                 ))
                 .toList();
+    }
+    public long getSize(){
+        return contactRepository.count();
     }
 }
