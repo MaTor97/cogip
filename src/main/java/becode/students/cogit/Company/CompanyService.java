@@ -85,4 +85,8 @@ public class CompanyService {
                 company.getCreatedAt()
         );
     }
+
+    public long getSize(){
+        return companyRepository.count();
+    }
 }

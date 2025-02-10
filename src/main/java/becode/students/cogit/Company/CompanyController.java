@@ -36,4 +36,9 @@ public class CompanyController {
             @RequestParam(name = "page") int page, @RequestParam(name = "size") int size) {
         return companyService.getCompaniesByPage(page,size);
     }
+
+    @GetMapping(path = "size")
+    public long getSize() {
+        return companyService.getSize();
+    }
 }
